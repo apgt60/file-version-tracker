@@ -3,6 +3,7 @@ CREATE TABLE "file" (
 	"name" varchar(250) NOT NULL,
 	"description" varchar(500) NOT NULL,
 	"link" varchar(1024) NOT NULL,
+	"archived" TIMESTAMP,
 	CONSTRAINT "File_pk" PRIMARY KEY ("id")
 );
 
