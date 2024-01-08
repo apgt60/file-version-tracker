@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document Version Tracker</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <script src="./script.js" defer></script>
     <link rel="stylesheet" href="./index.css">
     <style>
@@ -21,21 +24,18 @@
 </head>
 <body>
 
+    <h1>File Version Tracker</h1>
+
     <div id="file-list-div">
-        <h3>File List</h3>
-        <table id="file-list" border="4" style="width: 100%;">
-            <tr><th>File Name</th><th>Description</th><th>Latest Version</th><th>Versions</th></tr>
+        <!-- <h3>File List</h3> -->
+        <table id="file-list" class="table">
+            <tr><th>File Name</th><th>Description</th><th style="width: 10%;">Latest Version</th><th style="width: 15%;">Versions</th></tr>
         </table>
 
-        <!-- <button id='say-hello-button'>say hello!</button>
-
-        <p id='hello-text'>Hello World!</p>
-        <p id='repeat-text'></p> -->
-        <p>&nbsp;</p>
         <form id="add-file-form">
-            <input type="text" id="add-name" placeholder="File Name">
-            <input type="text" id="add-desc" placeholder="File Description">
-            <input type="text" id="add-link" placeholder="File Link">
+            <input type="text" id="add-name" placeholder="File Name" size="25">
+            <input type="text" id="add-desc" placeholder="File Description" size="40">
+            <input type="text" id="add-link" placeholder="File Link" size="50">
             <button id="add-button">+</button>
         </form>
     </div>   
@@ -43,17 +43,15 @@
     <div id="version-list-div">
         <h3 id="file-title">Name</h3>
         <p id="file-description">Description</p>
-        <table id="version-list" border="3" style="width: 100%;">
-            <tr><th>Version</th><th>Timestamp</th><th>Comment</th><th>Link</th></tr>
+        <table id="version-list" class="table">
+            <tr><th>Version</th><th>Timestamp</th><th>Comment</th><th style="width: 10%;">Link</th></tr>
         </table>
-        <p>&nbsp;</p>
         <form id="add-version-form">
             <input type="hidden" id="add-version-file-id">
-            <input type="text" id="add-version-desc" placeholder="Comment">
-            <input type="text" id="add-version-link" placeholder="File Link">
+            <input type="text" id="add-version-desc" placeholder="Comment" size="25">
+            <input type="text" id="add-version-link" placeholder="File Link" size="50">
             <button id="add-version-button">+</button>
         </form>
-        <p>&nbsp;</p>
         <button id="back-to-files-button" onclick="backToFiles()">Back to Files</button>
     </div>
    

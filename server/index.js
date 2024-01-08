@@ -7,7 +7,8 @@ const {
     getFileList,
     addFile,
     addVersion,
-    getVersionList
+    getVersionList,
+    deleteFile
 } = require('./controller.js')
 
 app.use(express.json())
@@ -18,5 +19,6 @@ app.get('/api/allFiles', getFileList)
 app.post('/api/addFile', addFile)
 app.post('/api/addVersion', addVersion)
 app.get('/api/versions/:fileId', getVersionList)
+app.delete('/api/deleteFile/:fileId', deleteFile)
 
 app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`))

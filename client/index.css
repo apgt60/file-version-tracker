@@ -1,3 +1,45 @@
-.hidden {
-    display: none
+body {
+    font-family: 'Lato', sans-serif;
 }
+
+.hidden {
+    display: none;
+}
+
+table, td {
+    border: 2px solid;
+    padding: 5px;
+}
+
+.table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+button {
+    transition-duration: 0.3s;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 5px;
+}
+  
+button:hover {
+    background-color: #251583; 
+    color: white;
+}
+
+.deleteButton:hover {
+    background-color: rgb(160, 32, 32); 
+    color: black;
+    font-weight: bolder;
+}
+
+a {
+    color: #251583;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+

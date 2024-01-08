@@ -103,11 +103,21 @@ const initFileList = () => {
             let newRow = tableRef.insertRow(-1);
 
             let editCell = newRow.insertCell(0)
-            var editLink = document.createElement("button")
-            editLink.setAttribute("onClick", `listVersions(${res.data[i].id})`)
-            var editLinkText = document.createTextNode("Versions")
-            editLink.appendChild(editLinkText)
-            editCell.appendChild(editLink)
+            var editButton = document.createElement("button")
+            editButton.setAttribute("onClick", `listVersions(${res.data[i].id})`)
+            var editButtonText = document.createTextNode("Versions")
+            editButton.appendChild(editButtonText)
+            editButton.classList.add("editButton")
+            editCell.appendChild(editButton)
+
+            var deleteButton = document.createElement("button")
+            deleteButton.setAttribute("onClick", `deleteFile(${res.data[i].id})`)
+            deleteButton.classList.add("deleteButton")
+            var deleteButtonText = document.createTextNode("Delete")
+            deleteButton.appendChild(deleteButtonText)
+            editCell.appendChild(deleteButton)
+
+
 
 
             // Insert a cell in the row at index 0
@@ -204,6 +214,18 @@ const addFile = (evt) => {
     })   
 }
 
+const deleteFile = (fileId) => {
+    console.log("Delete file with id:", fileId);
+    if(confirm("Are you sure you want to delete a file?")){
+        axios.delete('http://localhost:8765/api/deleteFile/'+fileId).then((res) => {
+        if(res.data.success){
+            initFileList()
+        }})
+    } else {
+        console.log("User cancelled delete.")
+    }
+}
+
 const addVersion = (evt) => {
     evt.preventDefault()
     const fileId = document.getElementById('add-version-file-id').value
@@ -222,6 +244,7 @@ const addVersion = (evt) => {
         }
     })   
 }
+
 
 /** LISTENERS */
 addFileButton().addEventListener('click', addFile)

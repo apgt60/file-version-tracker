@@ -7,7 +7,7 @@ let nextEmp = 5
 
 module.exports = {
     getFileList: (req, res) => {
-        sequelize.query(`select name, description, link, id from file;`)
+        sequelize.query(`select name, description, link, id from file where archived is null;`)
             .then(dbRes => res.status(200).send(dbRes[0]))
             .catch(err => console.log(err))
     },
@@ -54,15 +54,20 @@ module.exports = {
         const fileId = req.params.fileId
         sequelize.query(`select version, file_id, comment, 
         date_created, 
-        link from history where file_id=${fileId};`)
-        //TODO: Add file info for client to use to response object
+        link from history where file_id=${fileId} order by date_created desc;`)
             .then(dbRes => {
                 sequelize.query(`select id, name, description, link from 
                 file where id=${fileId};`).then(dbRes2 => {
                 const resbody = {file: dbRes2[0][0], versions: dbRes[0]}
-                //res.status(200).send(dbRes[0])})
                 res.status(200).send(resbody)})
                 })   
+            .catch(err => console.log(err))
+    },
+    deleteFile: (req, res) => {
+        const fileId = req.params.fileId
+        sequelize.query(`update file set archived=now() where id=${fileId};`)
+            .then(dbRes => {
+                res.status(200).send({success: true})})
             .catch(err => console.log(err))
     }
 }
