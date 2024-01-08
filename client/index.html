@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Version Tracker</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./index.css">
+    <style>
+        #repeat-text {
+            font-size: xx-large;
+            display: none;
+        }
+        #hello-text {
+            font-size: xx-large;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="file-list-div">
+        <h3>File List</h3>
+        <table id="file-list" border="4" style="width: 100%;">
+            <tr><th>File Name</th><th>Description</th><th>Latest Version</th><th>Versions</th></tr>
+        </table>
+
+        <!-- <button id='say-hello-button'>say hello!</button>
+
+        <p id='hello-text'>Hello World!</p>
+        <p id='repeat-text'></p> -->
+        <p>&nbsp;</p>
+        <form id="add-file-form">
+            <input type="text" id="add-name" placeholder="File Name">
+            <input type="text" id="add-desc" placeholder="File Description">
+            <input type="text" id="add-link" placeholder="File Link">
+            <button id="add-button">+</button>
+        </form>
+    </div>   
+
+    <div id="version-list-div">
+        <h3 id="file-title">Name</h3>
+        <p id="file-description">Description</p>
+        <table id="version-list" border="3" style="width: 100%;">
+            <tr><th>Version</th><th>Timestamp</th><th>Comment</th><th>Link</th></tr>
+        </table>
+        <p>&nbsp;</p>
+        <form id="add-version-form">
+            <input type="hidden" id="add-version-file-id">
+            <input type="text" id="add-version-desc" placeholder="Comment">
+            <input type="text" id="add-version-link" placeholder="File Link">
+            <button id="add-version-button">+</button>
+        </form>
+        <p>&nbsp;</p>
+        <button id="back-to-files-button" onclick="backToFiles()">Back to Files</button>
+    </div>
+   
+
+</body>
+</html>
