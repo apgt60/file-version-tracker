@@ -125,6 +125,7 @@ const initFileList = () => {
             // Append a text node to the cell
             var link = document.createElement("a");
             link.setAttribute("href", res.data[i].link)
+            link.setAttribute("target", "_blank")
             //TODO add a class for the link
             //link.className = "someCSSclass";
             
@@ -169,6 +170,7 @@ const initVersionList = (fileId) => {
             // Append a text node to the cell
             var link = document.createElement("a");
             link.setAttribute("href", res.data.versions[i].link)
+            link.setAttribute("target", "_blank")
             //TODO add a class for the link
             //link.className = "someCSSclass";
             

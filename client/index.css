@@ -41,5 +41,13 @@ a {
     text-transform: uppercase;
 }
 
+input {
+    padding: 10px 20px 10px 10px;
+    margin: 5px 5px 5px 0px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
 
 
